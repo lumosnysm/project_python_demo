@@ -10,5 +10,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('calculate/', views.calculate, name='calculate'),
     path('feedback/', views.feedback, name='feedback'),
-    path('gen_doc/', views.gen_doc, name='gen_doc'),
+    # path('gen_doc/', views.gen_doc, name='gen_doc'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
