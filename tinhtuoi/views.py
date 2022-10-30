@@ -25,10 +25,9 @@ def calculate(request):
     year = request.POST['year']
     today = date.today()
     result = today.year - int(year)
-    if request.POST['year'] is not None:
-        f = Calculate(status=request.POST['feedback'])
-        f.save()
-    return render(request, 'tinhtuoi/index.html', {**statistic(), 'tuoi': result})
+    f = Calculate(status=None)
+    f.save()
+    return redirect('index', {**statistic(), 'tuoi': result})
 
 def feedback(request):
     if request.POST['feedback'] is not None:
