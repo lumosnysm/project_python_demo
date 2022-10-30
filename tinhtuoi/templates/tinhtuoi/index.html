@@ -2,7 +2,6 @@
 
 <link rel="stylesheet" href="{% static 'tinhtuoi/style.css' %}">
 
-{% if !tuoi %}
 <h2>App tính tuổi</h2>
 
   <form action="{% url 'tinhtuoi:calculate' %}" method="post">
@@ -21,7 +20,6 @@
     </p>
   </fieldset>
 </form>
-{% endif %}
 
 {% if tuoi %}
 <p><strong>Tuổi của bạn là: </strong><strong>{{ tuoi }}</strong></p>
