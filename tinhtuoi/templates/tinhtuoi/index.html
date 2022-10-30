@@ -1,0 +1,68 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'tinhtuoi/style.css' %}">
+
+<h2>App tính tuổi</h2>
+
+  <form action="{% url 'tinhtuoi:calculate' %}" method="post">
+  {% csrf_token %}
+
+  <fieldset>
+    <legend>Input vào đây</legend>
+
+    <p>
+    <label for="example-input-text">Nhập vào năm sinh</label><br/>
+      <input id="example-input-text" name="year" type="number" placeholder="Nhập vào năm sinh">
+    </p>
+
+    <p>
+      <input type="submit" value="Bắt đầu tính toán">
+    </p>
+  </fieldset>
+</form>
+
+{% if tuoi %}
+<p><strong>Tuổi của bạn là: </strong><strong>{{ tuoi }}</strong></p>
+
+<form action="{% url 'tinhtuoi:feedback'%}" method="post">
+  {% csrf_token %}
+
+  <legend>Feedback kết quả tính toán</legend>
+  <input type="radio" name="feedback" id="0" value="0">
+  <label for="choice0">Tính sai rồi</label><br>
+  <input type="radio" name="feedback" id="1" value="1">
+  <label for="choice1">Tính chuẩn rồi</label><br>
+  <input type="submit" value="Feedback">
+</form>
+{% endif %}
+
+<fieldset>
+  <legend>Thống kê</legend>
+
+  <p><strong>Tổng số lần tính toán: </strong><strong>{{ total }}</strong></p>
+  <p><strong>Tổng số lần được report tính đúng: </strong><strong>{{ right }}</strong></p>
+  <p><strong>Tổng số lần bị report tính sai: </strong><strong>{{ wrong }}</strong></p>
+</fieldset>
+
+<h2>App tạo văn bản ngẫu nhiên</h2>
+
+  <form action="{% url 'tinhtuoi:gen_doc' %}" method="post">
+  {% csrf_token %}
+
+  <fieldset>
+    <legend>Input vào đây</legend>
+
+    <p>
+    <label for="example-input-text">Nhập vào bất cứ thứ gì</label><br/>
+      <input id="example-input-text" name="sentence" type="text" placeholder="Nhập vào bất cứ thứ gì">
+    </p>
+
+    <p>
+      <input type="submit" value="Bắt đầu tạo văn bản ngẫu nhiên">
+    </p>
+  </fieldset>
+</form>
+
+{% if doc %}
+<p><strong>{{ doc }}</strong></p>
+{% endif %}

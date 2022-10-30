@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika&display=swap');
+@import url('doodle.css');
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  font-family: 'Signika', sans-serif;
+  font-size: 1em;
+}
