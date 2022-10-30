@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import GenDoc, Feedback
+
+admin.site.register(GenDoc)
+admin.site.register(Feedback)
