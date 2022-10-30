@@ -31,7 +31,7 @@ def calculate(request):
 
     t = loader.get_template('tinhtuoi/index.html')
     c = {**statistic(), 'tuoi': result}
-    return HttpResponse(t.render(c, request), content_type='application/xhtml+xml)
+    return HttpResponse(t.render(c, request), content_type='application/xhtml+xml')
 
 def feedback(request):
     if request.POST['feedback'] is not None:
