@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views import generic
 from datetime import date
+from django.template import loader
 from .models import Calculate, GenDoc
 # from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
@@ -26,7 +27,9 @@ def calculate(request):
     result = today.year - int(year)
     f = Calculate(status=None)
     f.save()
-    return redirect('index', {**statistic(), 'tuoi': result})
+    t = loader.get_template('tinhtuoi/index.html')
+    c = {**statistic(), 'tuoi': result}
+    return HttpResponse(t.render(c, request), content_type='application/xhtml+xml')
 
 def feedback(request):
     if request.POST['feedback'] is not None:
