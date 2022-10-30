@@ -134,3 +134,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ALLOWED_HOSTS = ['*']
 
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+CSRF_TRUSTED_ORIGINS = ["https://long-demo-django.herokuapp.com"]
