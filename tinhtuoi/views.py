@@ -27,7 +27,7 @@ def calculate(request):
     result = today.year - int(year)
     f = Calculate(status=None)
     f.save()
-    return HttpResponseRedirect(reverse('index', kwargs={**statistic(), 'tuoi': result}))
+    return render(request, 'tinhtuoi/index.html', {**statistic(), 'tuoi': result})
 
 
 
